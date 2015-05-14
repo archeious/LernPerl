@@ -13,9 +13,4 @@ Jeff Smith - L<https://archeio.us/>
 use strict;
 use warnings;
 
-
-my $firstNumber = 5;
-my $lastNumber = 500;
-
-my @arr = ($firstNumber..$lastNumber);
-map { printf "%d\n", $_ } @arr;
+map { printf "%d\n", $_ } (5..500);
