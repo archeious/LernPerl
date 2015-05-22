@@ -18,6 +18,7 @@
 * https://metacpan.org/pod/distribution/perlsecret/lib/perlsecret.pod
 * https://github.com/jnbek/programming_templates/tree/master/perl
 * https://github.com/vim-perl/vim-perl
+
 2. Second Task.
 ...rewrite y'all's code, but this time, let's use an array, but without declaring any variables. you'll want to think of how ranges are handled in shell script for ideas on this one.
 ...next, we'll have a lecture on data types and references.
