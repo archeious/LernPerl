@@ -1,8 +1,12 @@
 # LernPerl
+
 ## Tasks
+
 1. First Task.
 ...write me code that prints on individual lines number range from 5 to 500. do it anyway you want, so long as it's in Perl and will run on any post 5.6 version of Perl, use strict and warnings.
+
 #### Useful Links
+
 * http://perldoc.perl.org/perlsyn.html
 * http://perldoc.perl.org/perldata.html
 * http://perldoc.perl.org/perlsub.html
@@ -19,5 +23,7 @@
 ...next, we'll have a lecture on data types and references.
 ...I want everyone to get a grasp on references early on, since they play such an impottant role in everything Perl
 ...so, we'll break the %HASH habit early, before some of you learn that habit 😀
+
 #### Useful Links
+
 * http://perldoc.perl.org/perlref.html
