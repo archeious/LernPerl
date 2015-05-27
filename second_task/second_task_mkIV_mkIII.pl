@@ -13,6 +13,4 @@ Jeff Smith - L<https://archeio.us/>
 use strict;
 use warnings;
 
-foreach (5..500){
-   ~(~$_>>1<<1^$_) ? () :print "$_\n" ;
-}
+~(~$_>>1<<1^$_) ? () :print "$_\n" for (5..500) ;
