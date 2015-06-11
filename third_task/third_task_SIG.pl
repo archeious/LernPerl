@@ -3,18 +3,23 @@ use strict;
 use warnings;
 use B::Deparse ();
 
+# setup and examplar of a custom anomymous signal handler
+$SIG{TERM} = sub { print "Terminating\n"; exit(); };
 
-$SIG{TERM} = sub { print "Control+C was pressed\n" };
+# setup and examplar of a custom name subroutine signal handler
+sub interrupt { print "Interrupting.. but alas not terminating\n"; exit(); };
+$SIG{INT} = \&interrupt;
 
-for (keys %SIG) {
-    if (defined $SIG{$_}) {
-        my $pv = $_ . " => ";
+foreach my $key (keys %SIG) {
+    my $value = $SIG{$key};
+    if (defined $value) {
+        my $pv = $key . " => ";
         my $deparse = B::Deparse->new;
-        if (!ref($SIG{$_})) {
-            $pv .= $SIG{$_};
+        if (!ref($value)) { # check if the value is a reference
+            $pv .= $value; # the value is just a text value of another handler
         } else {
-            if  (UNIVERSAL::isa($SIG{$_},'CODE')) {
-                $pv .= $deparse->coderef2text($SIG{$_});
+            if  (UNIVERSAL::isa($value,'CODE')) { # check if is a refenence to a code block
+                $pv .= $deparse->coderef2text($value);
             }
         }
         print $pv."\n";
