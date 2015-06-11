@@ -7,7 +7,7 @@ use B::Deparse ();
 $SIG{TERM} = sub { print "Terminating\n"; exit(); };
 
 # setup and examplar of a custom name subroutine signal handler
-sub interrupt { print "Interrupting.. but alas not terminating\n"; exit(); };
+sub interrupt { print "Interrupting.. but alas not terminating\n"; };
 $SIG{INT} = \&interrupt;
 
 foreach my $key (keys %SIG) {
