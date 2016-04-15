@@ -7,7 +7,7 @@ use Data::Dumper;
 sub change {
     print  "args:". Data::Dumper->Dumper(@_)."\n";
     my $amount = shift;
-    my @currency  =  $_[0] || (
+    my $currency  =  $_[0] || [
         {name => 'Five Hundred Dollar Bill', value => 500},  
         {name => 'One Hundred Dollar Bill',  value => 100},  
         {name => 'Fifty Dollar Bill',        value => 50},  
@@ -19,11 +19,11 @@ sub change {
         {name => 'Dime',                     value => 0.10},  
         {name => 'Nickel',                   value => 0.05},  
         {name => 'Penny',                    value => 0.01},  
-    );
+    ];
     print  "currency". Data::Dumper->Dumper(@currency)."\n";
     my $change = {};    
     do {
-        my $unit = shift @currency;
+        my $unit = shift @$currency;
         print  "unit:". Data::Dumper->Dumper($unit)."\n";
         if ($amount >= $unit->{value}) {
             my $numOfUnits = int($amount/$unit->{value});
