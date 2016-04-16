@@ -50,7 +50,7 @@ sub change {
     return $change;
 }
 
-print 'Change for 1234.56 with US currency\n' . Data::Dumper->Dumper(change(1234.56)) . '\n';
+print "Change for 1234.56 with US currency\n" . Data::Dumper->Dumper(change(1234.56)) . "\n";
 
 my $fiveAndDime = {
     base => 100,
@@ -60,6 +60,6 @@ my $fiveAndDime = {
     ]
 };
 
-print 'Change for 1234.56 at a Five and Dime store (aka only nickels and dimes)\n'.
-    Data::Dumper->Dumper(change(1234.56,$fiveAndDime)).'\n';
+print "Change for 1234.56 at a Five and Dime store (aka only nickels and dimes)\n".
+    Data::Dumper->Dumper(change(1234.56,$fiveAndDime))."\n";
  
