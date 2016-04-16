@@ -23,15 +23,19 @@ sub change {
             {name => 'Penny',                    value => 1},  
         ]
     };
-    
+        
+    die "Amount provided is not a number" unless looks_like_number($amount);          
     die "Currency is missing base value" unless exists $currency->{base};  
-    $amount = $amount * $currency->{base}; 
+    die "Currency base value is not a number" unless looks_like_number($currency->{base});      
+    $amount = $amount * $currency->{base};
+     
     my $change = { };   
 
-    die "Currency units are missing" unless exists $currency->{units};  
-    die "Must declare are least one currency units" unless @{$currency->{units}} > 0;  
+    die "Must declare are least one currency units" unless exists $currency->{units} && @{$currency->{units}} > 0;  
     do {
+        # Grab next currency unit
         my $unit = shift $currency->{units};
+
         die "Missing currency unit name" unless exists $unit->{name};  
         die "Currency unit $unit->{name} is missing a value" unless exists $unit->{value};  
         die "Currency unit $unit->{name} is not a number" unless looks_like_number($unit->{value});  
